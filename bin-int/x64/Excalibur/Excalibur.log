@@ -1,1 +1,24 @@
-﻿
+﻿  Input.cpp
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(15,15): error C2065: 'SCR_WIDTH': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(16,15): error C2065: 'SCR_HEIGHT': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(37,5): error C2065: 'camera': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(44,5): error C2065: 'camera': undeclared identifier
+  Excalibur.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+F:\Programming\C++\projectes\Excalibur\vendor\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(15,15): error C2065: 'SCR_WIDTH': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(16,15): error C2065: 'SCR_HEIGHT': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(37,5): error C2065: 'camera': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(44,5): error C2065: 'camera': undeclared identifier
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+F:\Programming\C++\projectes\Excalibur\vendor\include\glad\glad.h(32): message : see previous definition of 'APIENTRY'
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(15,15): error C2065: 'SCR_WIDTH': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(16,15): error C2065: 'SCR_HEIGHT': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(37,5): error C2065: 'camera': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Camera\Camera.h(44,5): error C2065: 'camera': undeclared identifier
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\main.cpp(8): error C2280: 'Excalibur::Excalibur(void)': attempting to reference a deleted function
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Excalibur.h(44): message : compiler has generated 'Excalibur::Excalibur' here
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Excalibur.h(44,1): message : 'Excalibur::Excalibur(void)': function was implicitly deleted because a data member 'Excalibur::camera' has either no appropriate default constructor or overload resolution was ambiguous
+F:\Programming\C++\projectes\Excalibur\Excalibur\src\Excalibur\Excalibur.h(34): message : see declaration of 'Excalibur::camera'
+  Generating Code...

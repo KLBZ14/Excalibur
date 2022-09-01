@@ -5,8 +5,9 @@
 
 int main()
 {
-	GameEngine gameEngine;
+	Excalibur excalibur;
 
-	gameEngine.setup(1000, 800, "Excalibur");
-	gameEngine.Run();
+	excalibur.Setup();
+	excalibur.Run();
+	excalibur.Kill();
 }

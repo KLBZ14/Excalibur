@@ -45,14 +45,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)/vendor/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)/vendor/include;$(SolutionDir)/Excalibur/src;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(SolutionDir)/vendor/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)/bin/x64/Excalibur/</OutDir>
     <IntDir>$(SolutionDir)/bin-int/x64/Excalibur/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)/vendor/include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)/vendor/include;$(SolutionDir)/Excalibur/src;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(SolutionDir)/vendor/lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
     <OutDir>$(SolutionDir)/bin/x64/Excalibur/</OutDir>
     <IntDir>$(SolutionDir)/bin-int/x64/Excalibur/</IntDir>
@@ -67,6 +67,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -83,9 +84,36 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Excalibur\Render\BasicShapes\Shapes.cpp" />
+    <ClCompile Include="src\Excalibur\Render\BasicShapes\RenderShapes.cpp" />
+    <ClCompile Include="src\Excalibur\Events\Input.cpp" />
+    <ClCompile Include="src\Excalibur\Excalibur.cpp" />
+    <ClCompile Include="src\Excalibur\Log\Log.cpp" />
+    <ClCompile Include="src\Excalibur\Window\Window.cpp" />
+    <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Excalibur\Camera\Camera.h" />
+    <ClInclude Include="src\Excalibur\Render\BasicShapes\Shapes.h" />
+    <ClInclude Include="src\Excalibur\Render\BasicShapes\RenderShapes.h" />
+    <ClInclude Include="src\Excalibur\Events\Input.h" />
+    <ClInclude Include="src\Excalibur\Excalibur.h" />
+    <ClInclude Include="src\Excalibur\Log\Log.h" />
+    <ClInclude Include="src\Excalibur\Render\Model\Mesh.h" />
+    <ClInclude Include="src\Excalibur\Render\Model\Model.h" />
+    <ClInclude Include="src\Excalibur\Render\Shader\Shader.h" />
+    <ClInclude Include="src\Excalibur\Window\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Excalibur\Render\Shader\ShaderObjects\basicShader.frag" />
+    <None Include="src\Excalibur\Render\Shader\ShaderObjects\basicShader.vert" />
+    <None Include="src\Excalibur\Render\Shader\ShaderObjects\modelShader.frag" />
+    <None Include="src\Excalibur\Render\Shader\ShaderObjects\modelShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,13 +11,13 @@ class Window
 {
 public:
 	void setupWindow(int width, int height, const char* name);
-
-	bool windowShouldClose(GLFWwindow* window);
-	void clearColor(float color[]);
+	void clearColor(float r, float g, float b, float w);
 	void swapBuffers(GLFWwindow* window);
-	GLFWwindow* window;
+
+	GLFWwindow *getWindow();
 
 private:
+	GLFWwindow* window;
 	
 };
 
