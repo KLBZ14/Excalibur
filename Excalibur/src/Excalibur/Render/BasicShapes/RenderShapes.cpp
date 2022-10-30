@@ -2,36 +2,40 @@
 
 
 
-Square* RenderShapes::setupSquare()
+void RenderShapes::setupRenderShapes()
 {
-    Square square;
-    square.setupMemory();
-    return &square;
+    square.setupSquare();
+    cube.setupCube();
+    triangle.setupTriangle();
+    pyramid.setupPyramid();
 }
 
-void RenderShapes::DrawSquare(Shader& shader, Square &square)
+RenderShapes::~RenderShapes()
+{
+    square.Kill();
+    cube.Kill();
+    triangle.Kill();
+    pyramid.Kill();
+}
+
+
+void RenderShapes::DrawSquare(Shader& shader)
 {
     square.Draw(shader);
 }
 
-void RenderShapes::killSquare(Square& square)
-{
-    square.Kill();
-}
 
-Cube* RenderShapes::setupCube()
-{
-    Cube cube;
-    cube.setupMemory();
-    return &cube;
-}
-
-void RenderShapes::DrawCube(Shader& shader, Cube& cube)
+void RenderShapes::DrawCube(Shader& shader)
 {
     cube.Draw(shader);
 }
 
-void RenderShapes::killCube(Cube& cube)
+void RenderShapes::DrawTriangle(Shader& shader)
 {
-    cube.Kill();
+    triangle.Draw(shader);
+}
+
+void RenderShapes::DrawPyramid(Shader& shader)
+{
+    pyramid.Draw(shader);
 }

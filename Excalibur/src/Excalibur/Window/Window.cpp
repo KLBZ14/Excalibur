@@ -6,6 +6,8 @@
 
 void Window::setupWindow(int width, int height, const char* name)
 {
+    SCR_WIDTH = width;
+    SCR_HEIGHT = height;
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();
@@ -42,10 +44,12 @@ void Window::setupWindow(int width, int height, const char* name)
 }
 
 
+
 void Window::clearColor(float r, float g, float b, float w)
 {
     glClearColor(r, g, b, w);
     glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT);
 }
 
 void Window::swapBuffers(GLFWwindow *window)
@@ -60,7 +64,3 @@ GLFWwindow *Window::getWindow()
     return window;
 }
 
-void framebuffer_size_callback(GLFWwindow *window, int width, int height)
-{
-    glViewport(0, 0, width, height);
-}

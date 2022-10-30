@@ -88,9 +88,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Excalibur\Player\Player.cpp" />
+    <ClCompile Include="src\Excalibur\Player\Camera\Camera.cpp" />
     <ClCompile Include="src\Excalibur\Render\BasicShapes\Shapes.cpp" />
     <ClCompile Include="src\Excalibur\Render\BasicShapes\RenderShapes.cpp" />
-    <ClCompile Include="src\Excalibur\Events\Input.cpp" />
     <ClCompile Include="src\Excalibur\Excalibur.cpp" />
     <ClCompile Include="src\Excalibur\Log\Log.cpp" />
     <ClCompile Include="src\Excalibur\Window\Window.cpp" />
@@ -98,10 +99,11 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Excalibur\Camera\Camera.h" />
+    <ClInclude Include="src\Excalibur\Player\Player.h" />
+    <ClInclude Include="src\Excalibur\Player\Camera\Camera.h" />
     <ClInclude Include="src\Excalibur\Render\BasicShapes\Shapes.h" />
     <ClInclude Include="src\Excalibur\Render\BasicShapes\RenderShapes.h" />
-    <ClInclude Include="src\Excalibur\Events\Input.h" />
+    <ClInclude Include="src\Excalibur\Time\Time.h" />
     <ClInclude Include="src\Excalibur\Excalibur.h" />
     <ClInclude Include="src\Excalibur\Log\Log.h" />
     <ClInclude Include="src\Excalibur\Render\Model\Mesh.h" />

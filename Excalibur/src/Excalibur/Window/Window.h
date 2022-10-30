@@ -5,7 +5,6 @@
 
 #include "Excalibur/Log/Log.h"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 class Window
 {
@@ -14,10 +13,18 @@ public:
 	void clearColor(float r, float g, float b, float w);
 	void swapBuffers(GLFWwindow* window);
 
-	GLFWwindow *getWindow();
+	GLFWwindow* getWindow();
+
+	int SCR_WIDTH;
+	int SCR_HEIGHT;
+
+	static void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+	{
+		glViewport(0, 0, width, height);
+	}
+
 
 private:
 	GLFWwindow* window;
-	
 };
 

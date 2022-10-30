@@ -14,41 +14,54 @@ void Excalibur::Setup()
 
 	//setup shader
 	shader.setupShader("src/Excalibur/Render/Shader/ShaderObjects/basicShader.vert", "src/Excalibur/Render/Shader/ShaderObjects/basicShader.frag");
-
+	modelShader.setupShader("src/Excalibur/Render/Shader/ShaderObjects/modelShader.vert", "src/Excalibur/Render/Shader/ShaderObjects/modelShader.frag");
+	
 	//setup camera
-	camera = Camera(window.getWindow(), glm::vec3(0.0f, 0.0f, 3.0f));
+	player.createCamera(window.getWindow());
 
-	//setup square
-	square = *renderShapes.setupSquare();
+	//setup shape renderer
+	renderShapes.setupRenderShapes();
 }
 
 void Excalibur::Run()
 {
 	while (!glfwWindowShouldClose(window.getWindow()))
 	{
-		//time
-		float currentFrame = static_cast<float>(glfwGetTime());
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
+		//clock time
+		time.runClock();
 
 		//process input
-		input.runEventGather(window.getWindow(), camera, deltaTime);
+		player.runEventGather(window.getWindow(), time.getDeltaTime());
 
-		// view/projection transformations
-		shader.use();
-		glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-		glm::mat4 view = camera.GetViewMatrix();
-		shader.setMat4("projection", projection);
-		shader.setMat4("view", view);
-
-		//model transformation
-		glm::mat4 model = glm::mat4(1.0f);
-		shader.setMat4("model", model);
+		//set view and projection matrix
+		player.setViewMatrix(shader, SCR_WIDTH, SCR_HEIGHT);
 
 
 		//render
-		window.clearColor(0.9f, 0.9f, 0.9f, 1.0f);
-		renderShapes.DrawSquare(shader, square);
+		window.clearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+		//set directional light
+		shader.use();
+		shader.setVec3("dirLight.ambient", 0.2f, 0.2f, 0.2f);
+		shader.setVec3("dirLight.diffuse", 0.5f, 0.5f, 0.5f);
+		shader.setVec3("dirLight.specular", 1.0f, 1.0f, 1.0f);
+		shader.setVec3("dirLight.color", 1.0f, 1.0f, 1.0f);
+		shader.setVec3("dirLight.direction", 1.0f, -3.0f, 2.0f);
+		
+		//render floor
+		glm::mat4 model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(10.0f, 10.0f, 10.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.3f));
+		shader.setMat4("model", model);
+		shader.setVec3("material.ambient", 0.0, 0.1, 0.06);
+		shader.setVec3("material.diffuse", 0.0, 0.50980392, 0.50980392);
+		shader.setVec3("material.specular", 0.50196078, 0.50196078, 0.50196078);
+		shader.setFloat("material.shininess", 0.25);
+		renderShapes.DrawSquare(shader);
+
+		//render model
+
+
 
 
 
@@ -59,6 +72,5 @@ void Excalibur::Run()
 
 void Excalibur::Kill()
 {
-	renderShapes.killSquare(square);
 	glfwTerminate();
 }

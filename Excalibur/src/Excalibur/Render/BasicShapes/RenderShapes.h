@@ -8,12 +8,18 @@
 class RenderShapes
 {
 public:
-	Square* setupSquare();
-	void DrawSquare(Shader& shader, Square& square);
-	void killSquare(Square& square);
+	void setupRenderShapes();
+	~RenderShapes();
 
-	Cube* setupCube();
-	void DrawCube(Shader& shader, Cube& cube);
-	void killCube(Cube& cube);
+	void DrawSquare(Shader& shader);
+	void DrawCube(Shader& shader);
+	void DrawTriangle(Shader& shader);
+	void DrawPyramid(Shader& shader);
+
+private:
+	Square square;
+	Cube cube;
+	Triangle triangle;
+	Pyramid pyramid;
 };
 
